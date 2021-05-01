@@ -5,6 +5,8 @@ const AutoLoad = require("fastify-autoload");
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
+
+  // FASTIFY ENV
   fastify.register(require("fastify-env"), {
     confKey: "config",
     schema: {
@@ -22,6 +24,12 @@ module.exports = async function (fastify, opts) {
     },
     dotenv: true,
   });
+
+  // FASTIFY BCRYPT
+  fastify.register(require("fastify-bcrypt"), {
+    saltWorkFactor: 6,
+  });
+
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins

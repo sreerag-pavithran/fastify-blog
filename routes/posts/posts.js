@@ -16,7 +16,7 @@ const postSchema = new mongoose.Schema({
   },
 });
 const Posts = mongoose.model("post", postSchema);
-
+module.exports = Posts;
 module.exports = async (fastify, options) => {
   // FETCH POSTS
   fastify.get("/allposts", async (req, res) => {
